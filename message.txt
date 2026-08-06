@@ -1,0 +1,149 @@
+<!-- agar 2 messge/notifiaction send karna ho ay-->
+let lastSeenId = 0; // Sabse pehli baar koi id nahi dikhi
+
+async function checkForUpdates() {
+  try {
+    const response = await fetch('/data.json');
+    const data = await response.json();
+
+    if (data.updates) {
+      data.updates.forEach((update) => {
+        // Sirf wahi update dikhao jo lastSeenId se badi ho
+        if (update.id > lastSeenId) {
+          showNotif(update.title, update.body, update.id);
+          
+          // Current ID ko update kar do taake next time ye dobara na aaye
+          lastSeenId = update.id;
+        }
+      });
+    }
+  } catch (err) {
+    console.log("Error:", err);
+  }
+}
+
+<--.json-->
+
+{
+  "updates": [
+    { "id": 1, "title": "Update 1", "body": "Naya feature live ho gaya hai." },
+    { "id": 2, "title": "Update 2", "body": "Aaj raat maintenance hogi." }
+  ]
+}
+
+<!-- agar body chamhe tau  notification changr ar site khulta hi ar bar notice-->
+let lastKnownBody = ""; // Pehle body kuch nahi thi
+
+async function checkForUpdates() {
+  try {
+    const response = await fetch('/data.json');
+    const data = await response.json();
+
+    // Check karein kya nayi body purani body se alag hai?
+    if (data.body !== lastKnownBody) {
+      showNotif(data.title, data.body);
+      
+      // Ab nayi body ko save kar lo taake agli baar compare ho sake
+      lastKnownBody = data.body;
+    }
+  } catch (err) {
+    console.log("Error:", err);
+  }
+}
+
+<!-- agar tiyle changr  ar bar bar notice site khulta hii-->
+    let lastKnownTitle = "";
+
+    async function checkForUpdates() {
+      try {
+        const response = await fetch('data.json');
+        const data = await response.json();
+
+        // Agar purane title se naya title alag hai, toh notify karein
+        if (data.title !== lastKnownTitle) {
+          lastKnownTitle = data.title;
+          showNotif(data.title, data.body);
+        }
+      } catch (err) {
+        console.log("Update check fail:", err);
+      }
+    }
+
+    function showNotif(title, body) {
+      if (Notification.permission === 'granted') {
+        navigator.serviceWorker.ready.then((reg) => {
+          reg.showNotification(title, { body: body, icon: 'favicon.ico' });
+        });
+      }
+    }
+<!-- sath ma body ka nicha image badi like as new-->
+in sw.js--
+self.addEventListener('push', function(event) {
+  const data = event.data.json();
+  
+  const options = {
+    body: data.body,
+    icon: '/icon-192.png',
+    image: '/path-to-your-image.jpg', // Image banner ke liye
+    tag: 'update-tag',
+    requireInteraction: true
+    // actions array hata diya
+  };
+
+  event.waitUntil(
+    self.registration.showNotification(data.title, options)
+  );
+});
+
+in javascript--
+// ... polling logic mein se action wala part hata dein
+registration.showNotification(data.title, {
+  body: data.body,
+  icon: '/icon-192.png',
+  image: '/path-to-your-image.jpg',
+  tag: 'update-tag',
+  requireInteraction: true
+  // actions array hata diya
+});
+
+
+Badi image  News ka Sath 
+
+<!-- kaval 2 bar hi messgae jay ara every 24 hres new update notice-->
+let lastKnownBody = "";
+// Browser se purani count uthao, agar kuch nahi hai toh 0
+let messageCount = parseInt(localStorage.getItem('notifCount') || 0);
+
+async function checkForUpdates() {
+  try {
+    const response = await fetch('/data.json');
+    const data = await response.json();
+
+    // Condition 1: Body change honi chahiye
+    // Condition 2: Count 2 se kam honi chahiye
+    if (data.body !== lastKnownBody && messageCount < 2) {
+      
+      showNotif(data.title, data.body);
+      
+      // Update values
+      lastKnownBody = data.body;
+      messageCount++; // Count ek badha do
+      
+      // Browser mein save kar do taake refresh hone par bhi yaad rahe
+      localStorage.setItem('notifCount', messageCount);
+      
+      console.log("Message sent count: " + messageCount);
+    } 
+    else if (messageCount >= 2) {
+      console.log("Max notification limit reached.");
+    }
+// Check karein ki kya aaj ka din purane din se alag hai?
+let lastDate = localStorage.getItem('lastDate');
+let today = new Date().toDateString();
+
+if (lastDate !== today) {
+  localStorage.setItem('notifCount', 0); // Naya din, naya count
+  localStorage.setItem('lastDate', today);
+  messageCount = 0;
+}
+

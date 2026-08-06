@@ -1,0 +1,203 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+ </head>
+ <body>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2, h3 {
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .review-card {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 6px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .review-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #28a745;
+        }
+        .review-info h4 {
+            margin: 0 0 3px 0;
+            color: #007bff;
+        }
+        .review-info .phone {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .review-info p {
+            margin: 0;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Apna Review Dein</h2>
+        
+        <form id="reviewForm">
+            <div class="form-group">
+                <label for="userName">Aapka Naam:</label>
+                <input type="text" id="userName" required placeholder="Apna naam likhein">
+            </div>
+            <div class="form-group">
+                <label for="userPhone">Phone Number:</label>
+                <input type="tel" id="userPhone" required placeholder="Apna phone number likhein">
+            </div>
+            <div class="form-group">
+                <label for="userImage">Profile Photo (Chhoti size ki image select karein):</label>
+                <input type="file" id="userImage" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label for="userReview">Aapka Review:</label>
+                <textarea id="userReview" rows="4" required placeholder="Apna anubhav share karein"></textarea>
+            </div>
+            <button type="submit">Publish Karein</button>
+        </form>
+
+        <hr style="margin: 30px 0;">
+
+        <h3>Sabhi Reviews</h3>
+        <div id="reviewsContainer"></div>
+    </div>
+
+    <script>
+        const reviewForm = document.getElementById('reviewForm');
+        const reviewsContainer = document.getElementById('reviewsContainer');
+
+        document.addEventListener('DOMContentLoaded', loadReviews);
+
+        reviewForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            const reviewText = document.getElementById('userReview').value;
+            const imageInput = document.getElementById('userImage');
+
+            const file = imageInput.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const imageUrl = event.target.result;
+
+                const newReview = {
+                    name: name,
+                    phone: phone,
+                    image: imageUrl,
+                    text: reviewText
+                };
+
+                try {
+                    saveReviewToLocalStorage(newReview);
+                    displayReview(newReview);
+                    reviewForm.reset();
+                } catch (error) {
+                    alert('Image ka size bohot bada hai! Kripya koi choti image (MB se kam) upload karein.');
+                    console.error(error);
+                }
+            };
+
+            reader.readAsDataURL(file);
+        });
+
+        function saveReviewToLocalStorage(review) {
+            let reviews = JSON.parse(localStorage.getItem('reviewsWithImg')) || [];
+            reviews.push(review);
+            localStorage.setItem('reviewsWithImg', JSON.stringify(reviews));
+        }
+
+        function loadReviews() {
+            let reviews = JSON.parse(localStorage.getItem('reviewsWithImg')) || [];
+            reviewsContainer.innerHTML = ''; // Pehle container clear karein
+            reviews.forEach(review => {
+                displayReview(review);
+            });
+        }
+
+        function displayReview(review) {
+            const reviewCard = document.createElement('div');
+            reviewCard.classList.add('review-card');
+
+            reviewCard.innerHTML = `
+                <img src="${review.image}" alt="User Image">
+                <div class="review-info">
+                    <h4>${review.name}</h4>
+                    <div class="phone">📞 ${review.phone}</div>
+                    <p>${review.text}</p>
+                </div>
+            `;
+
+            reviewsContainer.prepend(reviewCard);
+        }
+    </script>
+
+ </body>
+ </html>

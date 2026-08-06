@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+      
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+ 
+</head>
+<body>
+         <style>
+         .flower {
+            position: fixed; 
+            top: -50px; 
+            font-size: 30px; /* Thoda bada size taaki 5 flowers acche se dikhein */
+            user-select: none;
+            pointer-events: none; /* Cards ke buttons kaam karte rahenge */
+            z-index: 9999;        /* Cards ke upar dikhega */
+            animation: fall linear infinite;
+        }
+
+        /* Speed aur path bilkul fix hai */
+        @keyframes fall {
+            0% {
+                top: -50px;
+                transform: translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                top: 105vh; 
+                transform: translateX(50px) rotate(360deg);
+                opacity: 0.6;
+            }
+        }
+    </style>
+ 
+    <script>
+        // Flower ki types
+        const flowers = ['🌸', '💮', '🌹', '🌺', '🌻'];
+        
+        // STRICT CONFIGURATION (Bilkul Fix)
+        const flowerCount = 5; // Sirf 5 flowers girenge
+        const fixSpeed = 7;    // Har flower 7 seconds me niche pahuchega (Fix Time)
+
+        function createFlower(index) {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            
+            // Har ek number ko alag flower mil rha hai
+            flower.innerText = flowers[index % flowers.length];
+            
+            // Screen par alag-alag jagah se girenge (Left se right ke beech me)
+            // 5 flowers hain toh unhe screen par barabar baant diya hai (0%, 20%, 40%, 60%, 80%)
+            flower.style.left = (index * 20) + Math.random() * 5 + 'vw';
+            
+            // Speed bilkul fix (7 seconds)
+            flower.style.animationDuration = fixSpeed + 's';
+            
+            // Delay isliye taaki saare 1 saath na giren, aage peeche giren
+            flower.style.animationDelay = (index * 1.2) + 's'; 
+
+            document.body.appendChild(flower);
+        }
+
+        // Loop sirf 5 baar chalega aur fix 5 flowers banayega
+        for (let i = 0; i < flowerCount; i++) {
+            createFlower(i);
+        }
+    </script>
+
+                      <a  href="https://wa.me/8684899861" class="whatshap-float" ><img  class="ji" src="images/QtvHd6lI9q4iydr59B.gif"></a>
+  <br>
+  <a href="tel: +918684899869" class="call-float"><img class="ji" src="images/WqXjQsd0MAhc2CvtkQ (1).gif"></a>
+ <style>
+    p{
+        text-align: center;
+    }
+                 .whatshap-float{
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+             }
+               .call-float{
+                position: fixed;
+                bottom: 100px;
+                right: 20px;
+                z-index: 1000;
+             }
+                     .ji{
+        height: 60px;
+        width: 60px;
+     }
+     .image{
+        height: 430px;
+        width: 400px;
+      }
+</style>
+            <br>
+    <a href="index.html"><button class=" btn btn-success">BACK</button></a>
+    <hr>
+
+          <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <ul class="nav nav-tabs">    
+                                    <img class="ig" src="images/IMG_20260110_134205.jpg">
+            <li class="col-3" class="nav-item"><a class="nav-link " href="#home" data-bs-toggle="tab">home</a></li>
+          <li class="col-3" class="nav-item"><a class="nav-link" href="#images" data-bs-toggle="tab">images</a></li>
+        <li class="col-3" class="nav-item"><a class="nav-link" href="#news" data-bs-toggle="tab">News/blog</a></li>
+              </ul>
+  </div>
+</div>
+</div>
+ <br>
+                 <div class="tab-content">
+                      <div id="home" class="tab-pane fade show active"> 
+         <div class="card1">
+          <div class="card-footer1"> 
+                  <img class="ui" src="images/IMG_20260114_224011.jpg">
+  Deepak Aggarwal <p>who is holding BCA(4-yesrs Hons.degree)</p> 
+          </div>
+          <div class="card-header">
+            <div class="box"> 
+                <a  href="https://wa.me/8684899861"><img class="ji" src="images/QtvHd6lI9q4iydr59B.gif"></a>
+   <a  href="mailto:deepakag286@gmail.com"><img class="ji"src="images/unnamed.gif"></a>
+  <a href="https://www.youtube.com/@deepak2005aggarwal"><img class="ji" src="images/ZGI3wLEZSDwi2Lx0lC.gif"></a>
+
+           </div>
+        </div>
+        </div>
+                        <hr>
+                        <style> 
+                                :root {
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --college-color: #4a90e2;
+            --school-color: #e67e22;
+            --env-color: #2ecc71;
+            --exam-color: #9b59b6;
+        }
+
+         h1 {
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        /* Responsive Grid Layout */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Card Styling */
+        .card {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Top border accent for each category */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+        }
+
+        .card.college::before { background-color: var(--college-color); }
+        .card.school::before { background-color: var(--school-color); }
+        .card.environment::before { background-color: var(--env-color); }
+        .card.exams::before { background-color: var(--exam-color); }
+
+        .card-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .college .card-tag { color: var(--college-color); }
+        .school .card-tag { color: var(--school-color); }
+        .environment .card-tag { color: var(--env-color); }
+        .exams .card-tag { color: var(--exam-color); }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+        }
+
+        .card-quote {
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            font-size: 0.85rem;
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+    </style>
+ 
+    <h1>Your Daily Dose of Inspiration</h1>
+
+    <div class="card-container" id="motivation-grid">
+        </div>
+
+    <script>
+        // Data structure containing the card info and potential quotes
+        const cardData = [
+            {
+                type: 'college',
+                tag: 'College Life',
+                title: 'Building Your Future',
+                quotes: [
+                    "Your education is a dress rehearsal for a life that is yours to lead. Make it chaotic, beautiful, and uniquely yours.",
+                    "College is more than just classes; it’s where you discover who you are and build the foundation for your wildest dreams."
+                ],
+                footer: "💡 Network, learn, and grow."
+            },
+            {
+                type: 'school',
+                tag: 'School Days',
+                title: 'The Spark of Curiosity',
+                quotes: [
+                    "Every great architect, scientist, and leader sat exactly where you are sitting today. Believe in your potential.",
+                    "Don't worry about being perfect; just focus on being a little better than you were yesterday. Curiosity is your superpower!"
+                ],
+                footer: "🌱 Every day is a fresh start."
+            },
+            {
+                type: 'environment',
+                tag: 'Our Planet',
+                title: 'Be the Change',
+                quotes: [
+                    "The Earth does not belong to us; we belong to the Earth. Small acts of care multiplied by millions can transform the world.",
+                    "Plant seeds of kindness for the planet today, so future generations can sit under the shade of our good choices."
+                ],
+                footer: "🌍 Reduce, reuse, inspire."
+            },
+            {
+                type: 'exams',
+                tag: 'Exam Strategy',
+                title: 'A Chance to Shine',
+                quotes: [
+                    "Exams aren't a trap to catch what you don't know; they are a stage for you to showcase how much you've grown. Breathe, you got this.",
+                    "An exam is just a snapshot of a single moment in time. It cannot measure your worth, your passion, or your ultimate potential."
+                ],
+                footer: "✨ Preparation meets opportunity."
+            }
+        ];
+
+        function generateCards() {
+            const container = document.getElementById('motivation-grid');
+            
+            cardData.forEach(data => {
+                // Pick a random quote from the array for variety
+                const randomQuote = data.quotes[Math.floor(Math.random() * data.quotes.length)];
+                
+                // Create card element
+                const card = document.createElement('div');
+                card.className = `card ${data.type}`;
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="card-tag">${data.tag}</div>
+                        <h2 class="card-title">${data.title}</h2>
+                        <p class="card-quote">"${randomQuote}"</p>
+                    </div>
+                    <div class="card-footer">${data.footer}</div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Run the function when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', generateCards);
+    </script>
+    <br>
+    <marquee behavior="scroll" direction="left" scrollamount="5" style="color: darkblue; font-size: 1.2rem; font-weight: bold;">
+        within 2 hrs your problems will solve
+        </marquee>
+   <div class="box"> 
+         <h3 class="ab"><img class="ig-9" src="images/1768416755323.png">ABOUT</h3>
+              This website is very helpful for school and college ,one can see pyq,notes etc,and can raise doubt
+         </div>
+         <hr>
+         <iframe width="100%" height="400px" src="https://docs.google.com/forms/d/e/1FAIpQLSfle74jG8IyHs0AEfeTOAUrkXj_UH7ooBGZopQ_bojtwRFIgQ/viewform?usp=header"></iframe>
+    </div>
+  <div id="images" class="tab-pane fade">
+    <img class="image" src="images/Gemini_Generated_Image_9vd77s9vd77s9vd7.png"><hr>
+         <img class="image" src="images/frame0000.png"><hr>
+         <img class="image" src="images/Gemini_Generated_Image_s4zxxos4zxxos4zx.png"><hr>
+         <img class="image" src="images/Gemini_Generated_Image_wzw4gfwzw4gfwzw4.png"><hr>
+         <img class="image" src="images/Gemini_Generated_Image_aszlrfaszlrfaszl.png"><hr>
+    <img class="image" src="images/file_000000006a3c7208af407b1a87e4ab31.png"><hr>
+    <img class="image" src="images/Gemini_Generated_Image_x8n2fjx8n2fjx8n2.png"><hr>
+    <img class="image" src="images/1780194854830.png"><hr>
+    <img class="image" src="images/Gemini_Generated_Image_s4zxxos4zxxos4zx.png"><hr>
+    <img class="image" src="images/1780194575091.png"><hr>
+     <img class="image"src="images/IMG_20260511_175810 copy.jpg"><hr>
+         <img class="image"src="images/IMG_20260601_162312.png" > <hr>  
+            <img class="image" src="images/WhatsApp Image 2026-05-23 at 21.48.13.jpeg" > <hr>
+          <img class="image" src="images/WhatsApp Image 2026-05-23 at 22.01.58.jpeg" > <hr> 
+         <img class="image" src="images/IMG_20260513_192231.png">  <hr>
+          <img class="image" src="         images/WhatsApp Image 2026-05-23 at 23.12.38.jpeg" ><hr>
+                        <img  class="image" src="images/WhatsApp Image 2026-05-23 at 23.04.16.jpeg"  ><hr>
+                             <img class="image" src="images/WhatsApp Image 2026-05-23 at 22.01.59.jpeg">  <hr>
+                                   <img class="image" src="images/WhatsApp Image 2026-05-23 at 22.08.14.jpeg" > <hr>
+                                                <img class="image" src="images/WhatsApp Image 2026-05-23 at 23.06.29.jpeg" ><hr> 
+                                                <img class="image" src="images/de.jpeg" ><hr>
+                                                      <img class="image" src="images/WhatsApp Image 2026-05-24 at 13.02.35.jpeg"  ><hr>
+                                                 <img class="image" src="images/IMG-20260524-WA0003.jpg" ><hr>
+                                                 <img class="image" src="images/1780194684534.png"><hr>
+       <img class="image" src="images/1779814341413.png"><hr>
+      <img class="image" src="images/1779974173446.png" ><hr>
+       <img class="image" src="images/IMG20260528170314.jpg">  <hr>
+      <img class="image" src="images/1780194342263.png" > <hr>
+       <img class="image" src="images/1780412828703.png"> <hr>
+       <img class="image" src="images/deep.png">
+
+ </div>
+                    <div id="news" class="tab-pane fade in">
+      <div class="card">
+         <div class="card-header">
+           <h8> Educational Technology and Mobile Learning</h8> 
+         </div>
+         <div class="card-title">
+            <h9> Articles and guides focused on helping teachers and students seamlessly integrate technology into the classroom using the latest digital tools. Offers advice, tips, and tricks along with virtual education resources and mobile apps for all major platforms.</h9>
+         </div>
+       </div>
+       <hr>
+       <div class="card">
+        <div class="card-header">
+            <h8>smartphone-addiction</h8>
+        </div>
+        <div class="card-title">
+            <h9>“It is okay to own a technology, what is not okay is to be owned by technology.”</h9>
+        </div>
+       </div>
+       <hr>
+       <div class="card">
+        <div class="card-header">
+            <h8>Cybersecurity Tools</h8>
+        </div>
+        <div class="card-title">
+            <h9>Firewalls: These act as barriers between trusted internal networks and untrusted external networks, filtering incoming and outgoing traffic to prevent unauthorized acces</h9>
+        </div>
+       </div>
+  </div>
+  </div>
+    <style>
+        body{
+            background-color: lightcyan;
+            margin-top:0.5cm;
+        margin-left: 0.2cm;
+         }
+         .ig-67{
+            height: 40px;
+            width: 50px;
+        }
+            .ji{
+      height: 50px;
+      width: 60px;
+      margin-left:1cm;
+      
+    }
+                  .ui{
+        height: 150px;
+        width: 150px;
+        border-radius: 5cm;
+        margin-left: 0.5cm;
+    }
+
+      .box{
+      background-color: powderblue;
+     }
+         .card1{
+          box-shadow: 2px 2px 2px 2px red;
+          background-color: lightcyan;
+         }
+
+        p{
+            margin-left: 0.5cm;
+            color: green;
+        }
+        .ig-99{
+            height: 200px;
+            width: 250px;
+            margin-left: 1.5cm;
+        }
+            button{
+        margin-left: 3cm;
+        color: black;
+        width: 150px;
+        height: 60px;
+    }
+
+         .ad{
+            color: darkgreen;
+            margin-left: 2cm;
+        }
+        .cl{
+            color: red;
+        }
+        .ig4{
+            height: 250px;
+            width: 350px;
+        }
+        .ig-9{
+            height: 80px;
+            width: 60px;
+            margin-right: 0.5cm;
+        }
+        .container-6{
+             background-color: black;
+             height: 300px;
+        }
+         .date{
+            color: red;
+        }
+        h7{
+            color: chartreuse;
+             margin-left: 2cm;
+            font-style: italic;
+        }
+        h9{
+            color: darkgoldenrod;
+            text-align: center;
+        }
+        .ig{
+            height: 40px;
+            width: 40px;
+            border-radius: 6cm;
+          }
+         .ig-2{
+            height: 100px;
+            width: 150px;
+            margin-left: 2cm;
+         }
+         h2{
+            color: green;
+            margin-left: 1cm;
+         }
+         .ig-3{
+            height: 250px;
+            width: 300px;
+            margin-left: 0.5cm;
+         }
+          .ab{
+                        margin-left: 1.5cm;
+             color: red;
+            font-style: oblique;
+         }
+         .box{
+            margin: 5px 5px 5px ;
+            background-color: powderblue;
+         }
+         h6{
+            color: black;
+            margin-left: 0.5cm;
+         }
+         .container{
+            background-color: brown;
+            height: 40px;
+         }
+        .nav-link{
+            color: black;
+            margin-left: 0.5cm;
+         }
+         .nav-link:hover{
+            color: darkgoldenrod;
+         }
+         .row{
+            gap: 0.5cm;
+         }
+         .card{
+            background-color: ghostwhite;
+         }
+         h8{
+            color: deeppink;
+         }
+         .back{
+            color: black;
+            margin-top: 0.1cm;
+            margin-left: 2cm;
+         }
+         .back:hover{
+            color: yellow;
+         }
+         .abc{
+            margin-left: 1.5cm;
+            font-style: oblique;
+         }
+          a{
+            text-decoration: none;
+            font-size: medium;
+         }
+         .box-1{
+            background-color: yellowgreen;
+         }
+         .gallery{
+            height: 35px;
+            width: 35px;
+            margin-left: 1.5cm;
+          }
+                  .gallery-1{
+            height: 35px;
+            width: 35px;
+            margin-left: 3cm;
+          }
+
+        </style>
+</body>
+</html>

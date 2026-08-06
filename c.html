@@ -1,0 +1,226 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student & Institution Portal</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 2.6rem;
+            color: #1e293b;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #64748b;
+        }
+
+        /* Grid System */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* Card Styles */
+        .category-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        /* KHALI IMAGE PLACEHOLDER AREA */
+        .empty-image-area {
+            width: 100%;
+            height: 200px;
+            background-color: #f8fafc;
+            border-bottom: 2px dashed #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-content {
+            padding: 28px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .card-content h2 {
+            font-size: 1.5rem;
+            margin: 0 0 12px 0;
+            font-weight: 700;
+        }
+
+        .card-content p {
+            font-size: 0.98rem;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        /* Button Style */
+        .action-btn {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            color: #ffffff;
+            padding: 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            box-sizing: border-box;
+            transition: opacity 0.2s ease;
+        }
+
+        .action-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* ==================================================
+           COLOR THEMES FOR EACH CATEGORY (COLORED TEXTS & BADGES)
+        ================================================== */
+
+        /* 1. College Section - Blue Theme */
+        .college-card h2 { color: #2563eb; }
+        .college-card p { color: #1e40af; }
+        .college-badge { background: #dbeafe; color: #2563eb; }
+        .college-btn { background: #2563eb; }
+
+        /* 2. School Section - Green Theme */
+        .school-card h2 { color: #16a34a; }
+        .school-card p { color: #166534; }
+        .school-badge { background: #dcfce7; color: #16a34a; }
+        .school-btn { background: #16a34a; }
+
+        /* 3. Home Section - Orange/Teal Theme */
+        .home-card h2 { color: #ea580c; }
+        .home-card p { color: #9a3412; }
+        .home-badge { background: #ffedd5; color: #ea580c; }
+        .home-btn { background: #ea580c; }
+
+        /* 4. Admit Card & Helpline - Red/Crimson Theme */
+        .helpline-card h2 { color: #dc2626; }
+        .helpline-card p { color: #991b1b; }
+        .helpline-badge { background: #fee2e2; color: #dc2626; }
+        .helpline-btn { background: #dc2626; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+         <!-- Categories Grid -->
+        <div class="category-grid">
+
+            <!-- 1. COLLEGE SECTION -->
+            <div class="category-card college-card">
+                <!-- KHALI IMAGE AREA (Yahan aap apni image lagayein) -->
+                <div class="empty-image-area">
+                    <!-- <img src="your-college-image.jpg" alt="College Section" style="width:100%; height:100%; object-fit:cover;"> -->
+                    [ KHANLI IMAGE AREA - COLLEGE ]
+                </div>
+                <div class="card-content">
+                    <span class="category-badge">Higher Education</span>
+                    <h2>College Section</h2>
+                    <p>Yahan aapko sabhi top colleges, degree courses, admissions updates, campus life aur university notifications ki poori jankari milegi.</p>
+                    <a href="college.html" class="college-btn action-btn">Explore Colleges</a>
+                </div>
+            </div>
+
+            <!-- 2. SCHOOL SECTION -->
+            <div class="category-card school-card">
+                <!-- KHALI IMAGE AREA (Yahan aap apni image lagayein) -->
+                <div class="empty-image-area">
+                    <!-- <img src="your-school-image.jpg" alt="School Section" style="width:100%; height:100%; object-fit:cover;"> -->
+                    [ KHALI IMAGE AREA - SCHOOL ]
+                </div>
+                <div class="card-content">
+                    <span class="category-badge">Schooling</span>
+                    <h2>School Section</h2>
+                    <p>Primary aur Secondary schools ke liye special desk. Yahan boards exams (CBSE/State), syllabus changes, e-learning content aur academic calendars available hain.</p>
+                    <a href="school.html" class="school-btn action-btn">Explore Schools</a>
+                </div>
+            </div>
+
+            <!-- 3. HOME SECTION -->
+            <div class="category-card home-card">
+                <!-- KHALI IMAGE AREA (Yahan aap apni image lagayein) -->
+                <div class="empty-image-area">
+                    <!-- <img src="your-home-image.jpg" alt="Home Section" style="width:100%; height:100%; object-fit:cover;"> -->
+                    [ KHALI IMAGE AREA - HOME ]
+                </div>
+                <div class="card-content">
+                    <span class="category-badge">Dashboard</span>
+                    <h2>Home Section</h2>
+                    <p>Aapka personal student dashboard area. Apne saved courses, daily announcements, basic profiles aur website ke main features ko yahan se access karein.</p>
+                    <a href="home.html" class="home-btn action-btn">Go to Home</a>
+                </div>
+            </div>
+
+            <!-- 4. ADMIT CARD & HELPLINE SECTION -->
+            <div class="category-card helpline-card">
+                <!-- KHALI IMAGE AREA (Yahan aap apni image lagayein) -->
+                <div class="empty-image-area">
+                    <!-- <img src="your-helpline-image.jpg" alt="Helpline Section" style="width:100%; height:100%; object-fit:cover;"> -->
+                    [ KHALI IMAGE AREA - ADMIT CARD / HELPLINE ]
+                </div>
+                <div class="card-content">
+                    <span class="category-badge">Urgent Support</span>
+                    <h2>Admit Card & Helpline Number</h2>
+                    <p>Apne aane wale exams ke Admit Cards direct download karein. Kisi bhi dikkat ya query ke liye hamari 24/7 helpline aur support numbers se turant judein.</p>
+                    <a href="helpline.html" class="helpline-btn action-btn">Download / Contact Us</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+

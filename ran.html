@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Motivation Cards</title>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --college-color: #4a90e2;
+            --school-color: #e67e22;
+            --env-color: #2ecc71;
+            --exam-color: #9b59b6;
+        }
+
+         h1 {
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        /* Responsive Grid Layout */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Card Styling */
+        .card {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Top border accent for each category */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+        }
+
+        .card.college::before { background-color: var(--college-color); }
+        .card.school::before { background-color: var(--school-color); }
+        .card.environment::before { background-color: var(--env-color); }
+        .card.exams::before { background-color: var(--exam-color); }
+
+        .card-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .college .card-tag { color: var(--college-color); }
+        .school .card-tag { color: var(--school-color); }
+        .environment .card-tag { color: var(--env-color); }
+        .exams .card-tag { color: var(--exam-color); }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+        }
+
+        .card-quote {
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            font-size: 0.85rem;
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Your Daily Dose of Inspiration</h1>
+
+    <div class="card-container" id="motivation-grid">
+        </div>
+
+    <script>
+        // Data structure containing the card info and potential quotes
+        const cardData = [
+            {
+                type: 'college',
+                tag: 'College Life',
+                title: 'Building Your Future',
+                quotes: [
+                    "Your education is a dress rehearsal for a life that is yours to lead. Make it chaotic, beautiful, and uniquely yours.",
+                    "College is more than just classes; it’s where you discover who you are and build the foundation for your wildest dreams."
+                ],
+                footer: "💡 Network, learn, and grow."
+            },
+            {
+                type: 'school',
+                tag: 'School Days',
+                title: 'The Spark of Curiosity',
+                quotes: [
+                    "Every great architect, scientist, and leader sat exactly where you are sitting today. Believe in your potential.",
+                    "Don't worry about being perfect; just focus on being a little better than you were yesterday. Curiosity is your superpower!"
+                ],
+                footer: "🌱 Every day is a fresh start."
+            },
+            {
+                type: 'environment',
+                tag: 'Our Planet',
+                title: 'Be the Change',
+                quotes: [
+                    "The Earth does not belong to us; we belong to the Earth. Small acts of care multiplied by millions can transform the world.",
+                    "Plant seeds of kindness for the planet today, so future generations can sit under the shade of our good choices."
+                ],
+                footer: "🌍 Reduce, reuse, inspire."
+            },
+            {
+                type: 'exams',
+                tag: 'Exam Strategy',
+                title: 'A Chance to Shine',
+                quotes: [
+                    "Exams aren't a trap to catch what you don't know; they are a stage for you to showcase how much you've grown. Breathe, you got this.",
+                    "An exam is just a snapshot of a single moment in time. It cannot measure your worth, your passion, or your ultimate potential."
+                ],
+                footer: "✨ Preparation meets opportunity."
+            }
+        ];
+
+        function generateCards() {
+            const container = document.getElementById('motivation-grid');
+            
+            cardData.forEach(data => {
+                // Pick a random quote from the array for variety
+                const randomQuote = data.quotes[Math.floor(Math.random() * data.quotes.length)];
+                
+                // Create card element
+                const card = document.createElement('div');
+                card.className = `card ${data.type}`;
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="card-tag">${data.tag}</div>
+                        <h2 class="card-title">${data.title}</h2>
+                        <p class="card-quote">"${randomQuote}"</p>
+                    </div>
+                    <div class="card-footer">${data.footer}</div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Run the function when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', generateCards);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>csc facility</title>
+                     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+      <style>
+         .flower {
+            position: fixed; 
+            top: -50px; 
+            font-size: 30px; /* Thoda bada size taaki 5 flowers acche se dikhein */
+            user-select: none;
+            pointer-events: none; /* Cards ke buttons kaam karte rahenge */
+            z-index: 9999;        /* Cards ke upar dikhega */
+            animation: fall linear infinite;
+        }
+
+        /* Speed aur path bilkul fix hai */
+        @keyframes fall {
+            0% {
+                top: -50px;
+                transform: translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                top: 105vh; 
+                transform: translateX(50px) rotate(360deg);
+                opacity: 0.6;
+            }
+        }
+    </style>
+ 
+    <script>
+        // Flower ki types
+        const flowers = ['🌸', '💮', '🌹', '🌺', '🌻'];
+        
+        // STRICT CONFIGURATION (Bilkul Fix)
+        const flowerCount = 5; // Sirf 5 flowers girenge
+        const fixSpeed = 7;    // Har flower 7 seconds me niche pahuchega (Fix Time)
+
+        function createFlower(index) {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            
+            // Har ek number ko alag flower mil rha hai
+            flower.innerText = flowers[index % flowers.length];
+            
+            // Screen par alag-alag jagah se girenge (Left se right ke beech me)
+            // 5 flowers hain toh unhe screen par barabar baant diya hai (0%, 20%, 40%, 60%, 80%)
+            flower.style.left = (index * 20) + Math.random() * 5 + 'vw';
+            
+            // Speed bilkul fix (7 seconds)
+            flower.style.animationDuration = fixSpeed + 's';
+            
+            // Delay isliye taaki saare 1 saath na giren, aage peeche giren
+            flower.style.animationDelay = (index * 1.2) + 's'; 
+
+            document.body.appendChild(flower);
+        }
+
+        // Loop sirf 5 baar chalega aur fix 5 flowers banayega
+        for (let i = 0; i < flowerCount; i++) {
+            createFlower(i);
+        }
+    </script>
+
+    <marquee direction="left">
+    <h2>MOST WELCOME IN CSC FACILITY</h2>
+    </marquee>
+    <style>
+.chat-box{
+    width:360px;
+     margin-left:1cm;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+b{
+    color:peru
+}
+.header{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:15px;
+    font-size:20px;
+}
+
+.messages{
+    height:300px;
+    overflow-y:auto;
+    padding:10px;
+}
+
+.bot{
+    background:#f1f5f9;
+    padding:10px;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.user{
+    background:#2563eb;
+    color:white;
+    padding:10px;
+    border-radius:10px;
+    margin-bottom:10px;
+    text-align:right;
+}
+
+.input-box{
+    display:flex;
+    border-top:1px solid #ccc;
+}
+input{
+    flex:1;
+    padding:12px;
+    border:none;
+    outline:none;
+}
+
+button{
+    padding:12px 20px;
+    border:none;
+    background:#0f172a;
+    color:white;
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="chat-box">
+
+<div class="header">
+Auto Reply Bot
+</div>
+
+<div class="messages" id="messages">
+
+<div class="bot">
+<b>Select Question Number:</b><br>
+
+1. Documents required for college admission form<br>
+2. Document for domicile/income generate
+ 
+</div>
+
+</div>
+
+<div class="input-box">
+<input type="text" id="userInput" placeholder="Enter Number">
+<button onclick="sendMessage()">Send</button>
+</div>
+
+</div>
+
+<script>
+
+function sendMessage(){
+
+let input = document.getElementById("userInput").value;
+
+if(input == "") return;
+
+let messages = document.getElementById("messages");
+
+// User Message
+messages.innerHTML += `
+<div class="user">${input}</div>
+`;
+
+let reply = "Invalid Number";
+
+if(input == "1"){
+    reply = "1) 10th Marksheet<br>2) 12th Marksheet<br>3) Aadhar Card photo copy<br>4) Passport Size Photo<br>5) Domicile Certificate<br>6) Income Certificate<br>7) Caste Certificate<br>8) Family ID copy<br>9) migration certificate<br>10) Character Certificate<br>11) Affidavit<br>12) Gap Affidavit (if applicable)<br>13) Disability Certificate (if applicable)<br>14) EWS Certificate (if applicable)<br>15) Sports Certificate (if applicable)<br>18) NCC Certificate (if applicable)<br>16) email id<br>17) phone number<br>18) signature<br>";
+}
+
+else if(input == "2"){
+    reply = "patvari+sarpanch sign on a rihashi parman patrwa whic is available on any shop fill and apply";
+}
+
+else if(input == "3"){
+    reply = "";
+}
+
+else if(input == "4"){
+    reply = "";
+}
+
+else if(input == "5"){
+    reply = "";
+}
+
+else if(input == "6"){
+    reply = "";
+}
+
+// Bot Reply
+setTimeout(() => {
+
+messages.innerHTML += `
+<div class="bot">${reply}</div>
+`;
+
+messages.scrollTop = messages.scrollHeight;
+
+},500);
+
+document.getElementById("userInput").value = "";
+
+}
+
+</script>
+
+    <hr>
+    <a href="index.html"><button class="btn btn-success">go back</button></a>
+                        <div class="slider-container">
+    <div class="slides">   
+      <div class="slide active"><img class="ig2" src="images/frame0000.png" alt="Slide 1"></div>
+   <div class="slide"><img class="ig2" src="images/WhatsApp Image 2026-05-23 at 21.48.13.jpeg" alt="Slide 2"></div>
+     <div class="slide"><img class="ig2"src="images/IMG_20260511_175810 copy.jpg" alt="Slide 3"></div>
+        <div class="slide"><img class="ig2"src=" images/WhatsApp Image 2026-05-23 at 22.01.58.jpeg"   alt="Slide 4"></div>
+         <div class="slide"><img class="ig2" src="images/de.jpeg" alt="Slide 5"></div>
+                  <div class="slide"><img class="ig2" src="images/WhatsApp Image 2026-05-23 at 22.01.59.jpeg" alt="Slide 6"></div>
+         <div class="slide"><img class="ig2" src="images/WhatsApp Image 2026-05-23 at 22.08.14.jpeg" alt="Slide 7"></div>
+                                                                <div class="slide"><img class="ig2" src="images/IMG-20260524-WA0003.jpg" alt="Slide 8"></div>
+     </div>   
+    <h1 class="prev" onclick="changeSlide(-1)">&#10094;</h1>
+    <h1 class="next" onclick="changeSlide(1)">&#10095;</h1>
+</div>
+    <style> 
+.slider-container {
+    position: relative;
+    max-width: 450px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.slide {
+    display: none; /* Hide images by default */
+    width: 100%;
+}
+.slide img {
+    width: 100%;
+     height: 400px;
+    display: block;
+    margin-left:0.2cm;
+}
+.active {
+    display: block; /* Show the active image */
+}
+
+/* Navigation Buttons */
+h1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+}
+.btn{
+    margin-left: 3cm;
+}
+.next { right: 0; }
+.prev { left: 0; }
+
+h1:hover { background: rgba(0,0,0,0.8); 
+}
+</style>
+ <script> 
+ let currentIndex = 0;
+const slides = document.querySelectorAll('.slide');
+
+function changeSlide(direction) {
+    // 1. Remove 'active' class from current slide
+    slides[currentIndex].classList.remove('active');
+
+    // 2. Update the index
+    currentIndex += direction;
+
+    // 3. Handle Looping (if at end, go to start; if at start, go to end)
+    if (currentIndex >= slides.length) {
+        currentIndex = 0;
+    } else if (currentIndex < 0) {
+        currentIndex = slides.length - 1;
+    }
+
+    // 4. Add 'active' class to the new slide
+    slides[currentIndex].classList.add('active');
+}
+// Optional: Auto-play every 5 seconds
+setInterval(() => changeSlide(1), 2000);
+</script>
+
+      <style>
+       .pics{
+        height: 350px;
+        width: 300px;
+        backdrop-filter: inherit;
+      }
+             .pics9{
+        height: 300px;
+        width: 300px;
+      }
+
+    </style>  
+    <div class="box">
+        <h3>CSC facility is providing you ,because geneerally in seen that one got angry after going to him for scs work ,so keeping in this mind csc facility providing you with the best services.</h3>
+    </div>
+    <style>
+        price{
+            color: red;
+            font-weight: bold;
+            margin-left: 2cm;
+        }
+        .box{
+            color: red;
+        }
+        img{
+                width: 100%;
+     height: 400px;
+
+         }
+         .card{
+            background-color:paleturquoise
+         }
+         .card-body{
+            margin-left: 1cm;
+            font-weight: bold;
+            font-style: oblique;
+         }
+         a{
+            text-decoration: none;
+            color: white;
+         }
+    </style>
+    <hr>
+    <div class="card">
+     <div class="card-body">
+        <h4> get PVC card </h4>
+    </div>
+    <div class="card-img">
+        <img src="images/WhatsApp Image 2026-05-23 at 22.45.38.jpeg">
+    </div>
+    <div class="card-footer">
+        <price>price is 150 rupees</price><span><a href="https://wa.me/918684899861" target="_blank" class="whatsapp-btn"><button class="btn btn-primary">Order Now</button></a></span>
+     </div>
+        </div>
+<hr>
+<div class="card">
+    <div class="card-body">
+        <h4>adhar-pan link</h4>
+    </div>
+    <div class="card-img">
+        <img src="images/WhatsApp Image 2026-05-23 at 22.08.14.jpeg">
+    </div>
+    <div class="card-footer">
+        <price>price is 2000 rupees</price><span><a href="https://wa.me/918684899861" target="_blank" class="whatsapp-btn"><button class="btn btn-primary">Order Now</button></a></span>
+    </div>
+</div>
+<hr>
+<div class="card">
+    <div class="card-body">
+        <h4> college admisson form</h4>
+    </div>
+    <div class="card-img">
+        <img src="images/WhatsApp Image 2026-05-23 at 22.01.59.jpeg">
+    </div>
+    <div class="card-footer">
+        <price>price is 250  rupees</price><span><a href="https://wa.me/918684899861" target="_blank" class="whatsapp-btn"><button class="btn btn-primary">Order Now</button></a></span>
+    </div>
+</div>
+<hr>
+<div class="card">
+    <div class="card-body">
+        <h4>domicile/income certificate</h4>
+    </div>
+    <div class="card-img">
+        <img src="images/WhatsApp Image 2026-05-23 at 23.04.16.jpeg">
+    </div>
+    <div class="card-footer">
+        <price>price is 200 rupees</price><span><a href="https://wa.me/918684899861" target="_blank" class="whatsapp-btn"><button class="btn btn-primary">Order Now</button></a></span>
+    </div>
+</div>
+<hr>
+<div class="card">
+    <div class="card-body">
+        <h4>family id upadte </h4>
+    </div>
+    <div class="card-img">
+        <img src="images/WhatsApp Image 2026-05-23 at 23.06.29.jpeg">
+    </div>
+    <div class="card-footer">
+        <price>price is 100 rupees</price><span><a href="https://wa.me/918684899861" target="_blank" class="whatsapp-btn"><button class="btn btn-primary">Order Now</button></a></span>
+    </div>
+</div>
+<hr>
+<div class="card">
+    <div class="card-body">
+        <h4> generate family id</h4>
+    </div>
+    <div class="card-img">
+        <img src="images/WhatsApp Image 2026-05-24 at 13.02.35.jpeg">
+    </div>
+    <div class="card-footer">
+        <price>price is 150 rupees</price><span><a href="https://wa.me/918684899861" target="_blank" class="whatsapp-btn"><button class="btn btn-primary">Order Now</button></a></span>
+    </div>
+</div>
+<hr>
+<div class="card">
+    <div class="card-body">
+        <h4>pan card apply </h4>
+    </div>
+    <div class="card-img">
+        <img src="images/de.jpeg">
+    </div>
+    <div class="card-footer">
+        <price>price is 2000 rupees</price><span><a href="https://wa.me/918684899861" target="_blank" class="whatsapp-btn"><button class="btn btn-primary">Order Now</button></a></span>
+    </div>
+</div>
+<hr>
+ <div class="card">
+    <div class="card-body">
+        <h4> website get</h4>
+    </div>
+    <div class="card-img">
+        <img src="images/WhatsApp Image 2026-05-23 at 23.12.38.jpeg">
+    </div>
+    <div class="card-footer">
+        <price>price is 20,000 for 1 year,10,000 for 6 month,2000 for 1 month rupees and additional features -search on google-RS:2500 for 1 year  </price><span><a href="https://wa.me/918684899861" target="_blank" class="whatsapp-btn"><button class="btn btn-primary">Order Now</button></a></span>
+    </div>
+</div>
+ </body>
+</html>
