@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cblu previous year question-NEP</title>
+             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+ 
+</head>
+<body>
+      <style>
+         .flower {
+            position: fixed; 
+            top: -50px; 
+            font-size: 30px; /* Thoda bada size taaki 5 flowers acche se dikhein */
+            user-select: none;
+            pointer-events: none; /* Cards ke buttons kaam karte rahenge */
+            z-index: 9999;        /* Cards ke upar dikhega */
+            animation: fall linear infinite;
+        }
+
+        /* Speed aur path bilkul fix hai */
+        @keyframes fall {
+            0% {
+                top: -50px;
+                transform: translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                top: 105vh; 
+                transform: translateX(50px) rotate(360deg);
+                opacity: 0.6;
+            }
+        }
+    </style>
+ 
+    <script>
+        // Flower ki types
+        const flowers = ['🌸', '💮', '🌹', '🌺', '🌻'];
+        
+        // STRICT CONFIGURATION (Bilkul Fix)
+        const flowerCount = 5; // Sirf 5 flowers girenge
+        const fixSpeed = 7;    // Har flower 7 seconds me niche pahuchega (Fix Time)
+
+        function createFlower(index) {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            
+            // Har ek number ko alag flower mil rha hai
+            flower.innerText = flowers[index % flowers.length];
+            
+            // Screen par alag-alag jagah se girenge (Left se right ke beech me)
+            // 5 flowers hain toh unhe screen par barabar baant diya hai (0%, 20%, 40%, 60%, 80%)
+            flower.style.left = (index * 20) + Math.random() * 5 + 'vw';
+            
+            // Speed bilkul fix (7 seconds)
+            flower.style.animationDuration = fixSpeed + 's';
+            
+            // Delay isliye taaki saare 1 saath na giren, aage peeche giren
+            flower.style.animationDelay = (index * 1.2) + 's'; 
+
+            document.body.appendChild(flower);
+        }
+
+        // Loop sirf 5 baar chalega aur fix 5 flowers banayega
+        for (let i = 0; i < flowerCount; i++) {
+            createFlower(i);
+        }
+    </script>
+     <a href="index.html"><button class=" btn btn-success">BACK</button></a>
+<br><br>
+<h5>AEC/SEC/VAC/MINOR/MDC</h5>
+<style>
+    h5{
+        color: white;
+        margin-left: 1cm;
+    }
+</style>
+     <div class="tab-content">
+                                                 <div class="card"> 
+    <div class="card-header"> 
+        <div class="card-left">
+             Subject : 
+        </div><hr>
+  <div class="card-right">
+    i) Basic of cs<hr>ii) basic of it tool<hr>iii) computinal physics<hr>iv) human value & ethics<hr>v) minor chemistry<hr>vi) introductry maths<hr>vii) hindi bhasa and vaykaran<hr>viii) csr<hr>ix) english communication<hr>x) elementary economics<hr>xi) English for compe.exams<hr>xii) Personal finance<hr>xiii) Fundam.of botany<hr>xiv) Evs <hr> xv) General Geograph of Har<hr>xvi) Introductry chemistry-1<hr>xvii) Monor zoology<hr>xviii) political science<hr> xvix) office & spreadsheet tools<hr> xx) हिंदी भाषा का व्यावहारिक ज्ञान
+ </div>  
+   <hr>
+ Semester : 1st(2024,25)
+ <hr>
+  <a class="hj" href="https://drive.google.com/drive/folders/11fisYvp3RD0TtChMTMqP-_xgaq25Mz31?usp=gmail"><button class="btn btn-danger">download</button></a>
+</div>
+</div>
+<br>
+                     <div class="card">
+    <div class="card-header"> 
+                <div class="card-left">
+             Subject :
+        </div><hr>
+  <div class="card-right">
+    i) business commu.<hr>ii) internet &web tech<hr>iii) intro.of enterprin.deve.<hr>iv) evs<hr>v) Personality devlo. & lEadership<hr>vi) Fundam.of bank.&insurance<hr>vii) Cloud Computing skills<hr>viii) minor-chemistry-11<hr>ix) mathematics for commerce & social science<hr>x) chemistry of food flavour & colentrs<hr>xi) basic instruments skills<hr>xii) understanding abnormal behaviour<hr>xiii) elementry electicity & em theory<hr>xiv) Program methodologies<hr>xv) Web development<hr>xvi) General geography of India(MDC)<hr>xvii) हिंदी भाषा और संप्रसाहन<hr>xviii) business mathematics-ii<hr>xix) essential of corporate communication<hr>xx) indian society & culture<hr>xxi) web technology fundamental<hr>xxii) general geography of india(minor)<hr>xxiii) office & spreadsheet tools<hr> xxiv) संस्कृत भाषा और संप्रेषन<hr>xxv)essential of corporate communication<hr>xxvi) numerical ability enhancement skills<hr> xxvii) राजभाषा हिंदी<hr> xxviii) human values & ethics
+  </div>  <hr> 
+ Semester : 2nd(2025,26)<hr>
+<a class="hj" href="https://drive.google.com/drive/folders/1mGovE4XEjBxwkyRPYNwvIrORnG_IvNau?usp=sharing"><button class="btn btn-danger">download</button></a>
+</div>
+</div>
+<br>
+                     <div class="card">
+    <div class="card-header"> 
+                <div class="card-left">
+             Subject :
+        </div><hr>
+  <div class="card-right">
+     i) E-business & Cyber security<hr>ii) english gram.& usuage<hr>iii) advance it skills<hr>iv) Consumer protec.in india<hr>v) अनुवाद कलां<hr>vi) हिंदी भाषा और संप्रसाहन<hr>vii) Minor Physics<hr>viii) आधुनिक गढ़य साहित्य( Minor)<hr>ix) Mathemtics for all<hr>x) Indian Polity-III<hr>xi) Zoology(Minor)<hr>xii) business etiqettes<hr> xiii) English at workplace
+ </div>  <hr> 
+ Semester : 3rd(2025,26)<hr>
+<a class="hj" href="https://drive.google.com/drive/folders/1GcHjOSkPCuH-wx-y7FnHpqofS0hTzjig?usp=sharing"><button class="btn btn-danger">download</button></a>
+</div>
+</div>
+<br>
+                     <div class="card">
+    <div class="card-header"> 
+                <div class="card-left">
+             Subject :
+        </div><hr>
+  <div class="card-right">
+     i) Vocabulury buoldings<hr>ii) Data anylysis with SPSS<hr>iii) Sustainable development<hr>iv) minor-physics(maintanance labour instruments)<hr>v) हिंदी कहानी लेखन एवं प्रस्तुति कौशल
+<hr>vi) व्यक्तिगत विकास
+<hr>vii) हिंदी गद्य<hr>viii) population environment & ecology<hr>ix) content writing
+
+ </div>  <hr> 
+ Semester : 4th(2026,27)<hr>
+ <a class="hj" href="https://drive.google.com/drive/folders/1lRpEgIGAT9woAdeieDG3Z50GPTPy-hXg?usp=sharing"><button class="btn btn-danger">download</button></a>
+</div>
+</div>
+<br>
+                     <div class="card">
+    <div class="card-header"> 
+                <div class="card-left">
+             Subject :
+        </div><hr>
+  <div class="card-right">
+     
+ </div> <hr> 
+ Semester : 5th(2026,27)<hr>
+  <a class="hj"  href="https://drive.google.com/drive/folders/160o0v6CcdLC5nYp35LdnZ6arx_5ZwgfL?usp=sharing"><button class="btn btn-danger">download</button></a>
+</div>
+</div>
+<br>
+                     <div class="card">
+    <div class="card-header"> 
+                <div class="card-left">
+             Subject :
+        </div><hr>
+  <div class="card-right">
+     
+ </div> <hr> 
+ Semester : 6th(2027,28)<hr>
+<a class="hj" href="https://drive.google.com/drive/folders/1hLaZzUChkjo_ToN9fmXpTgUwbfpmxtwW?usp=sharing"><button class="btn btn-danger">download</button></a>
+</div>
+</div>
+<br>
+
+         </body>
+<style>
+     .todo{
+    display:flex;
+    gap:2cm;
+}
+    body{
+        background-color:dimgray;
+ 
+    }
+            .card{
+         margin-left: 0.5cm;
+        margin-right: 0.5cm;
+        padding-left: 8%;
+     }
+     .card-left{
+        text-align: left;
+     }
+.card-header{
+    font: 1em sans-serif;
+    justify-items: auto;
+}
+             .card-right{
+             color: green;
+                          margin-left: 1cm;
+         }
+  .ig-67{
+    height: 40px;
+    width: 50px;
+}
+.hj{
+    color: blue;
+}
+.hg{
+    color: white;
+}
+ sup{
+    color:yellow;
+}
+hr{
+    color: black;
+}
+    .ba{
+        color: blue;
+    }
+    .tabs-link{
+        color: white;
+    }
+    .tabs-link:hover{
+        color: black;
+    }
+    .bsc{
+        color: red;
+    }
+          button{
+        margin-left: 3cm;
+        color: black;
+        width: 150px;
+        height: 60px;
+    }
+.nav-link{
+    color: white;
+}
+    .dropdown-item{
+        color: chartreuse;
+    }
+
+.nav-link:hover{
+    color: darkcyan;
+}
+         a{
+        text-decoration: none;
+        color: yellow;
+    }
+    .adu{
+        color: red;
+        margin-left: 2cm;
+    }
+     a:hover{
+        color: green;
+    }
+    td{
+        font-style: italic;
+    }
+    h4{
+        color: red;
+        font-style: italic;
+        margin-left: 2cm;
+    }
+      a{
+        color: black;
+    }
+    h6{
+        color: black;
+        margin-left: 1cm;
+        font-style: italic;
+    }
+    h8{
+        color: white;
+    }
+  </style>
+</html>
