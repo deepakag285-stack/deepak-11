@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review System with Success Message</title>
+    <title>Clean Review System</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 30px; background: #f4f4f9; color: #333; }
         .container { max-width: 600px; background: white; padding: 25px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); margin: auto; }
@@ -12,16 +12,20 @@
         button { background: #007BFF; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; width: 100%; }
         button:hover { background: #0056b3; }
         
-        /* Success Message Box Style */
         #successBox { display: none; background: #d4edda; color: #155724; padding: 15px; border-radius: 5px; text-align: center; margin-bottom: 20px; border: 1px solid #c3e6cb; font-weight: bold; }
 
-        .review-card { background: #f9f9f9; padding: 15px; margin-top: 12px; border-left: 4px solid #007BFF; border-radius: 4px; display: flex; align-items: flex-start; gap: 15px; }
-        .review-card img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd; }
-        .review-content { width: 100%; }
-        .review-content h4 { margin: 0 0 5px 0; color: #007BFF; display: flex; justify-content: space-between; }
-        .stars { color: #f39c12; font-size: 16px; }
-        .review-content p { margin: 5px 0; }
-        .review-content small { color: gray; font-size: 11px; }
+        /* Review Card Design */
+        .review-card { background: #f9f9f9; padding: 15px; margin-top: 15px; border-left: 4px solid #007BFF; border-radius: 4px; }
+        .review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        
+        /* Poori image dikhane ke liye setting */
+        .review-card img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #007BFF; background: #fff; }
+        
+        .review-info h4 { margin: 0 0 3px 0; color: #007BFF; }
+        .stars { color: #f39c12; font-size: 15px; }
+        .review-card p { margin: 8px 0; word-break: break-word; }
+        .review-card small { color: gray; font-size: 11px; display: block; margin-top: 5px; }
+        
         #loading { display: none; color: green; text-align: center; margin-top: 10px; }
     </style>
 </head>
@@ -64,7 +68,7 @@
     // Yahan apna Google Apps Script ka Web App URL paste karein
     const scriptURL = 'https://script.google.com/macros/s/AKfycbywUWj_R9f5nWqO6aydME5lMvcdID3HPTLsdVwypuGCBGmws7NeJM8y4GidhNFR4dJ-/exec';
 
-    // 1. Visitor Tracking on Page Load
+    // 1. Visitor Tracking on Page Load (Sirf visit count/time ke liye, device display nahi hoga)
     window.addEventListener('load', () => {
         const visitorData = {
             type: 'visitor',
@@ -100,15 +104,21 @@
                     ? item.image 
                     : 'https://cdn-icons-png.flaticon.com/512/149/149071.png';
 
+                // Sirf Date/Time alag karne ke liye agar pipe '|' laga ho
+                let timeOnly = item.time ? item.time.split('|')[0] : '';
+
                 const div = document.createElement('div');
                 div.className = 'review-card';
                 div.innerHTML = `
-                    <img src="${userImg}" alt="User">
-                    <div class="review-content">
-                        <h4>${item.name} <span class="stars">${item.rating}</span></h4>
-                        <p>${item.review}</p>
-                        <small>Device/Time: ${item.time}</small>
+                    <div class="review-header">
+                        <img src="${userImg}" alt="User Photo">
+                        <div class="review-info">
+                            <h4>${item.name}</h4>
+                            <span class="stars">${item.rating}</span>
+                        </div>
                     </div>
+                    <p>${item.review}</p>
+                    <small>📅 Date & Time: ${timeOnly}</small>
                 `;
                 reviewsList.appendChild(div);
             });
@@ -118,7 +128,7 @@
         }
     }
 
-    // 3. Submit Review Form with Success Notification
+    // 3. Submit Review Form
     const form = document.getElementById('reviewForm');
     const loading = document.getElementById('loading');
     const submitBtn = document.getElementById('submitBtn');
@@ -128,7 +138,7 @@
         e.preventDefault();
         submitBtn.style.display = 'none';
         loading.style.display = 'block';
-        successBox.style.display = 'none'; // Pehle wale message ko hide rakhein
+        successBox.style.display = 'none';
 
         const name = document.getElementById('name').value;
         const rating = document.getElementById('rating').value;
@@ -168,10 +178,7 @@
             loading.style.display = 'none';
             submitBtn.style.display = 'block';
             
-            // Success message dikhana
             successBox.style.display = 'block';
-            
-            // 4 second baad success message apne aap gayab ho jayega
             setTimeout(() => {
                 successBox.style.display = 'none';
             }, 4000);
