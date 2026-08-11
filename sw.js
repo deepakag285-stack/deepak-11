@@ -18,6 +18,6 @@ self.addEventListener('install', (e) => self.skipWaiting());
 
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
-  event.waitUntil(clients.openWindow('https://deepakag285-stack.github.io/College-1/college.html'));
+  event.waitUntil(clients.openWindow('https://deepakag285-stack.github.io/deepak-11/'));
 });
 
